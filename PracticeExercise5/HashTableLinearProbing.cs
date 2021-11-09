@@ -24,7 +24,7 @@ namespace PracticeExercise5
         private int count = 0;
         public int Count => count;
 
-        public double LoadFactor => count / buckets.Length;
+        public double LoadFactor => (double)count / buckets.Length;
 
         public bool Add(K key, V value)
         {
@@ -169,15 +169,21 @@ namespace PracticeExercise5
             var oldBuckets = buckets;
 
             buckets = newBuckets;
-
-
-            // rehash all the buckets into the new array
-            foreach ( var bucket in oldBuckets)
+            for (int i = 0; i < newBuckets.Length; i++)
             {
-
+                buckets[i] = new Bucket<K, V>();
             }
 
+            count = 0;
 
+            // rehash all the buckets into the new array
+            foreach (var bucket in oldBuckets)
+            {
+                if (bucket.State == BucketState.Full)
+                {
+                    Add(bucket.Key, bucket.Value);
+                }
+            }
         }
 
 
