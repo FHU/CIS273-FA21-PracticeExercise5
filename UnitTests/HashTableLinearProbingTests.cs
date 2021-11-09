@@ -42,7 +42,18 @@ namespace UnitTests
             ht.Remove("XBX");
 
             Assert.AreEqual(ht.Count, 4);
-            Assert.AreEqual(ht.Get("XBX"), 0);
+            Assert.IsFalse(ht.ContainsKey("XBX"));
+
+            // remove a key that's not in the hashtable
+            ht.Remove("XBX");
+            Assert.AreEqual(ht.Count, 4);
+
+            ht.Remove("XCD");
+            ht.Remove("EP");
+            ht.Remove("ON");
+            ht.Remove("PKA");
+
+            Assert.AreEqual(ht.Count, 0);
         }
 
         [TestMethod]
@@ -64,7 +75,7 @@ namespace UnitTests
 
             ht.Remove("XBX");
 
-            Assert.IsFalse( ht.ContainsKey("XBX") );
+            Assert.IsFalse(ht.ContainsKey("XBX"));
         }
 
 
@@ -83,6 +94,7 @@ namespace UnitTests
             Assert.IsTrue(ht.ContainsValue("outcast"));
             Assert.IsTrue(ht.ContainsValue("toga"));
             Assert.IsTrue(ht.ContainsValue("redneck"));
+
             Assert.IsFalse(ht.ContainsValue("foo"));
 
             ht.Remove("XBX");
