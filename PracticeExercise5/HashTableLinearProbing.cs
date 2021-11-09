@@ -95,7 +95,7 @@ namespace PracticeExercise5
         {
             foreach( var bucket in buckets)
             {
-                if( bucket.Value.Equals(value))
+                if(bucket.State== BucketState.Full && bucket.Value.Equals(value))
                 {
                     return true;
                 }
