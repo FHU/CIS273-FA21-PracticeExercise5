@@ -104,6 +104,7 @@ namespace PracticeExercise5
             return false;
         }
 
+        // TODO
         public V Get(K key)
         {
             if(!ContainsKey(key))
@@ -141,6 +142,7 @@ namespace PracticeExercise5
             return keys;
         }
 
+        // TODO
         public List<V> GetValues()
         {
             throw new NotImplementedException();
