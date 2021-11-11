@@ -133,7 +133,7 @@ namespace PracticeExercise5
 
             foreach(var bucket in buckets)
             {
-                if( bucket.State == BucketState.Full)
+                if( bucket.State == BucketState.Full )
                 {
                     keys.Add(bucket.Key);
                 }
@@ -179,11 +179,11 @@ namespace PracticeExercise5
             count = 0;
 
             // rehash all the buckets into the new array
-            foreach (var bucket in oldBuckets)
+            foreach (var oldBucket in oldBuckets)
             {
-                if (bucket.State == BucketState.Full)
+                if (oldBucket.State == BucketState.Full)
                 {
-                    Add(bucket.Key, bucket.Value);
+                    Add(oldBucket.Key, oldBucket.Value);
                 }
             }
         }
